@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts
+Configuration 1.1//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_1.dtd">
+<struts-config>
+    <form-beans >
+        <form-bean name="userinputForm" type="com.med.tpstrutshibernate.beans.UserinputForm" />
+        <form-bean name="listeProfesseursForm" type="com.med.tpstrutshibernate.beans.AfficherListeProfesseursForm"
+        />
+        <form-bean name="professeurEditForm" type="com.med.tpstrutshibernate.beans.ProfesseurEditForm" />
+    </form-beans>
+    <action-mappings >
+        <action
+                attribute="userinputForm"
+                name="userinputForm"
+                path="/userinput"
+                scope="request"
+                input="/userinput.jsp"
+                type="com.med.tpstrutshibernate.actions.UserinputAction">
+            <forward name="succes" path="/useroutput.jsp" />
+        </action>
+        <action
+                attribute="listeProfesseursForm"
+                name="listeProfesseursForm"
+                path="/afficherProfesseurs"
+                scope="request"
+                input="/afficheProfesseurs.jsp"
+                type="com.med.tpstrutshibernate.actions.AfficherListeProfesseurs">
+            <forward name="succes" path="/afficheProfesseurs.jsp" />
+        </action>
+        <action
+                attribute="professeurEditForm"
+                input=""
+                name="professeurEditForm"
+                parameter="do"
+                path="/professeurEdit"
+                scope="request"
+                type="com.med.tpstrutshibernate.actions.ProfesseurEditAction">
+            <forward
+                    name="showList"
+                    path="/afficherProfesseurs.do"
+                    redirect="true" />
+        </action>
+    </action-mappings>
+    <message-resources parameter="ApplicationResources" />
+</struts-config>

@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.med.tpstrutshibernate.hibernate">
+    <class
+            name="Professeur"
+            table="professeur"
+    >
+        <meta attribute="sync-DAO">false</meta>
+        <id
+                name="id"
+                type="integer"
+                column="id_prof"
+        >
+            <generator class="increment"/>
+        </id>
+        <property
+                name="nom"
+                column="nom_prof"
+                type="string"
+                not-null="false"
+                length="50"
+        />
+        <property
+                name="prenom"
+                column="prenom_prof"
+                type="string"
+                not-null="false"
+                length="50"
+        />
+        <property
+                name="adresse"
+                column="adresse_prof"
+                type="string"
+                not-null="false"
+                length="50"
+        />
+    </class>
+</hibernate-mapping>
